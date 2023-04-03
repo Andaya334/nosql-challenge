@@ -25,35 +25,7 @@ Use NoSQL_setup_starter.ipynb for this section of the challenge.
 
 The magazine editors have some requested modifications for the database before you can perform any queries or analysis for them. Make the following changes to the establishments collection:
 
-An exciting new halal restaurant just opened in Greenwich, but hasn't been rated yet. The magazine has asked you to include it in your analysis. Add the following information to the database:
-{
-    "BusinessName":"Penang Flavours",
-    "BusinessType":"Restaurant/Cafe/Canteen",
-    "BusinessTypeID":"",
-    "AddressLine1":"Penang Flavours",
-    "AddressLine2":"146A Plumstead Rd",
-    "AddressLine3":"London",
-    "AddressLine4":"",
-    "PostCode":"SE18 7DY",
-    "Phone":"",
-    "LocalAuthorityCode":"511",
-    "LocalAuthorityName":"Greenwich",
-    "LocalAuthorityWebSite":"http://www.royalgreenwich.gov.uk",
-    "LocalAuthorityEmailAddress":"health@royalgreenwich.gov.uk",
-    "scores":{
-        "Hygiene":"",
-        "Structural":"",
-        "ConfidenceInManagement":""
-    },
-    "SchemeType":"FHRS",
-    "geocode":{
-        "longitude":"0.08384000",
-        "latitude":"51.49014200"
-    },
-    "RightToReply":"",
-    "Distance":4623.9723280747176,
-    "NewRatingPending":True
-}
+An exciting new halal restaurant just opened in Greenwich, but hasn't been rated yet. The magazine has asked you to include it in your analysis.
 
 Find the BusinessTypeID for "Restaurant/Cafe/Canteen" and return only the BusinessTypeID and BusinessType fields.
 
@@ -107,66 +79,3 @@ _id	count
 3	Newham	711
 4	Swale	686
 
-Part 3: Exploratory Analysis (55 points)
-To receive all points, your Jupyter notebook analysis file must have all of the following:
-Question 1: Which establishments have a hygiene score equal to 20? (8 points)
-
-A query is correctly performed to find the establishments with a hygiene score of 20 (2 points)
-
-count_documents() is used to list the correct number of documents (answer: 41) (2 points)
-
-The first result is printed using pprint (2 points)
-
-The results are converted to a Pandas DataFrame and displays the first 10 rows (2 points)
-
-Question 2: Which establishments in London have a RatingValue greater than or equal to 4? (12 points)
-
-A query is correctly performed to find the establishments in London with a RatingValue greater than or equal to 4 (4 points)
-
-The query uses the $regex operator to locate the London establishments (2 points)
-
-count_documents() is used to list the correct number of documents (answer: 34) (2 points)
-
-The first result is printed using pprint (2 points)
-
-The results are converted to a Pandas DataFrame and displays the first 10 rows (2 points)
-
-Question 3: What are the top 5 establishments with a RatingValue of '5', sorted by lowest hygiene score, nearest to the new restaurant added, "Penang Flavours"? (15 points)
-
-A query is correctly performed to find the establishments within 0.01 degree of the "Penang Flavours" restaurant (4 points)
-
-The query also limits the results to establishments with a RatingValue of 5 (2 points)
-
-The query uses the sort() method in PyMongo to sort in ascending order on the hygiene score (2 points)
-
-The query uses the limit() method in PyMongo to limit the results to 5 (2 points)
-
-All five results are printed using pprint (3 points)
-
-The results are converted to a Pandas DataFrame and displayed (2 points)
-
-Question 4: How many establishments in each Local Authority area have a hygiene score of 0? Sort the results from highest to lowest, and print out the top ten local authority areas. (20 points)
-
-An aggregation pipeline is built to include a match query, group, and sort (3 points)
-
-The match query matches documents with a hygiene score of 0 (2 points)
-
-The group step of the pipeline is grouped on LocalAuthorityName and counts the number of documents (4 points)
-
-The sort step of the pipeline sorts the count of the documents in descending order (2 points)
-
-The aggregation pipeline is correctly sent to the aggregate() method (2 points)
-
-The results from the aggregation query is cast as a list and then saved to a variable (2 points)
-
-The first ten results are printed using pprint (3 points)
-
-The results are converted to a Pandas DataFrame and displays the first 10 rows (2 points)
-
-Deployment and Submission (6 points)
-To receive all points, you must:
-Submit a link to a GitHub repository that’s cloned to your local machine and contains your files (2 points)
-
-Use the command line to add your files to the repository (2 points)
-
-Include appropriate commit messages in your files (2 points)
